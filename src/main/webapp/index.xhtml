@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:growl autoUpdate="true"/>
+
+            <h:outputLabel for="txtMensaje"
+                           value="Mensaje"/>
+            <h:inputText id="txtMensaje"
+                         style="#{component.valid ? '' : 'border-color: #ff3300;'}"
+                         value="#{indexController.mensaje}"
+                         required="true"/>
+
+            <h:outputLabel for="txtCantidad"
+                           value="Cantidad"/>
+            <h:inputText id="txtCantidad"
+                         style="#{component.valid ? '' : 'border-color: #ff3300;'}"
+                         value="#{indexController.cantidad}"
+                         required="true"/>
+
+            <p:commandButton value="Enviar JMS"
+                             update="@form"
+                             action="#{indexController.send()}"/>
+        </h:form>
+    </h:body>
+</html>
+
